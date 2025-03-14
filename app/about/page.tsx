@@ -16,7 +16,7 @@ export default async function AboutPage() {
           ) : (
             <div className='prose dark:prose-invert'>
               <h2>About Me</h2>
-              <p>I'm a software engineer based in Colombo, Sri Lanka with a passion for creating clean, efficient, and user-friendly web applications.</p>
+              <p>I&apos;m a software engineer based in Colombo, Sri Lanka with a passion for creating clean, efficient, and user-friendly web applications.</p>
 
               <h2>My Skills</h2>
               <Skills />
