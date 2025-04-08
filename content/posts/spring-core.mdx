@@ -1,0 +1,278 @@
+---
+title: "Dive Into Spring Core: Mastering DI, Annotations, and IoC"
+summary: "Explore the fundamentals of Spring Core including Dependency Injection, Constructor and Setter Injection, and annotations like JSR-250 and JSR-330 to build powerful, modular Java applications."
+image: /images/posts/SpringCore.png
+author: "Madhuka Malshan"
+publishedAt: "2025-04-08"
+---
+
+# 🌿 Introduction to Spring Core
+
+If you're stepping into the world of Java enterprise development, **Spring Core** is your gateway. It's the foundation module of the **Spring Framework**, providing features for **dependency injection**, **bean lifecycle management**, and **annotation-based configuration**.
+
+Let’s dive deep into Spring Core and understand why it's a game-changer for Java developers.
+
+---
+
+## 💡 What is Spring Core?
+
+Spring Core is a module that gives you the tools to manage the objects (beans) in your application through the concept of **Inversion of Control (IoC)** and **Dependency Injection (DI)**.
+
+---
+
+## 🔄 Inversion of Control (IoC)
+
+**Inversion of Control** is a principle where the control of object creation and dependency resolution is handed over to the **Spring Container**, rather than being managed manually in your code.
+
+> Think of it like hiring a personal assistant: instead of you remembering to call the plumber, your assistant (Spring) does it for you automatically.
+
+---
+
+## 🧩 Dependency Injection (DI)
+
+**Dependency Injection** is a technique to supply objects (dependencies) a class needs without creating them inside the class. This makes your code:
+
+- Easier to **test**
+- Easier to **maintain**
+- More **flexible** to extend
+
+---
+
+## 🧰 Types of Dependency Injection
+
+### 1. 🧪 Constructor Injection (CI)
+
+
+{`@Component
+public class Car {
+
+    private final Engine engine;
+
+    @Autowired
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+}`}
+
+
+✅ Best for mandatory dependencies  
+🚫 Slightly verbose if many dependencies
+
+---
+
+### 2. 🧑‍🔧 Setter Injection (SI)
+
+
+{`@Component
+public class Car {
+
+    private Engine engine;
+
+    @Autowired
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+}`}
+
+
+✅ Best for optional dependencies  
+🚫 Can lead to partially initialized objects
+
+---
+
+## 🧠 Real-World Analogy: DI Explained
+
+Imagine you're building a computer:
+
+- **Without DI**: You create all parts (CPU, RAM, HDD) inside the computer class.
+- **With DI**: You receive all parts from an external supplier (Spring) and just assemble them.
+
+---
+
+## 🏛️ IoC Containers: BeanFactory vs ApplicationContext
+
+Spring provides containers that manage the lifecycle of beans.
+
+🔸 Lazy Initialization
+
+    BeanFactory: ✅ Yes
+    
+    ApplicationContext: ❌ No (eager by default)
+
+🔸 Internationalization Support
+
+    BeanFactory: ❌ No
+    
+    ApplicationContext: ✅ Yes
+
+🔸 Event Publishing
+
+    BeanFactory: ❌ No
+
+    ApplicationContext: ✅ Yes
+
+🔸 AOP Integration
+
+    BeanFactory: ❌ No
+
+    ApplicationContext: ✅ Yes
+
+---
+
+## 🧬 Bean Scopes in Spring
+
+🔹 singleton
+→ One instance per Spring container (default)
+
+🔹 prototype
+→ A new instance is created every time it’s requested
+
+🔹 request
+→ One instance per HTTP request (for web applications)
+
+🔹 session
+→ One instance per HTTP session (for web applications)
+
+```java
+@Component
+@Scope("prototype")
+public class Employee {}
+```
+
+---
+
+## 🔖 Annotations in Spring Core
+
+### Basic Annotations
+
+- `@Component` – Marks a class as a Spring-managed bean.
+- `@Autowired` – Injects the dependency automatically.
+- `@Qualifier` – Helps resolve ambiguity with multiple beans.
+- `@Value` – Injects primitive values or properties.
+
+---
+
+## 📦 JSR-250 Annotations
+
+JSR-250 provides Java-standard annotations that Spring supports:
+
+@PostConstruct
+→ This method is called after the bean has been initialized.
+
+@PreDestroy
+→ This method is called right before the bean is destroyed.
+
+@Resource
+→ Injects a dependency by name.
+
+---
+
+## 📦 JSR-330 Annotations
+
+These are from the `javax.inject` package:
+
+@Inject
+→ Serves as an alternative to Spring’s @Autowired.
+
+@Named
+→ Can be used in place of @Component.
+
+@Singleton
+→ Ensures that only one instance of the bean is created.
+
+---
+
+## 🧬 Bean Lifecycle & Callbacks
+
+The bean lifecycle includes:
+
+1. Instantiation
+2. Populating properties (DI)
+3. `@PostConstruct` or `afterPropertiesSet()`
+4. Bean is ready for use
+5. `@PreDestroy` or `destroy()`
+
+
+{`@Component
+public class Service {
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Initialized!");
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        System.out.println("Destroyed!");
+    }
+}`}
+
+
+---
+
+## ⚖️ XML vs Annotation-based Config
+
+Spring originally used XML for everything.
+
+```xml
+<bean id="myService" class="com.app.MyService"/>
+```
+
+Now we use annotations like:
+
+```java
+@Component
+public class MyService {}
+```
+
+➡️ **Annotation-based config is now the standard.**
+
+---
+
+## 🧠 Best Practices
+
+✅ Prefer Constructor Injection  
+✅ Use `@Qualifier` for multiple implementations  
+✅ Avoid field injection for testability  
+✅ Use `@PostConstruct` instead of custom init methods  
+✅ Use interfaces for better decoupling
+
+---
+
+## 🚫 Common Pitfalls
+
+❌ Circular Dependencies (A needs B, B needs A)  
+❌ Mixing too many annotations without structure  
+❌ Overusing prototype scope in singletons  
+❌ Injecting optional beans without `@Nullable` or `Optional`
+
+---
+
+## ✅ Quick Quiz
+
+1. Which injection type is better for mandatory dependencies?  
+2. What is the default scope of a Spring bean?  
+3. Name one annotation from JSR-330.  
+4. What's the difference between `@Component` and `@Named`?
+
+---
+
+## 📌 FAQ
+
+**Q: Is Spring Core only for web apps?**  
+A: No! Spring Core can be used in any Java application.
+
+**Q: Can I mix XML and annotations?**  
+A: Yes, though it's not recommended for large projects.
+
+**Q: Is `@Inject` the same as `@Autowired`?**  
+A: Functionally, yes – but `@Inject` is from JSR-330.
+
+---
+
+## 🧭 What’s Next?
+
+- Spring Boot: Simplify Spring setup with auto-configuration
+- Spring AOP: Handle cross-cutting concerns like logging and security
+- Spring Data: Simplify database interactions
+
