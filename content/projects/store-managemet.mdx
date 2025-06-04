@@ -1,0 +1,106 @@
+---
+title: Store Management – Event-Driven Microservices E-commerce Backend
+summary: A scalable e-commerce backend built with an event-driven microservices architecture using Java, gRPC, Docker, and LocalStack.
+image: /images/projects/eventDriven-MC-ecom.png
+author: 'Madhuka Malshan'
+publishedAt: '2025-03-13'
+repository: https://github.com/madhuka2002/store-management.git
+---
+
+## Introduction
+
+This project serves as a foundational backend for an e-commerce platform, utilizing an event-driven microservices architecture. It leverages Docker for containerization and LocalStack to emulate AWS services locally, facilitating efficient development and testing. Communication between microservices is achieved through high-performance **gRPC**.
+
+## Features
+
+- **Event-Driven Microservices**: Decoupled services communicating via events.
+- **gRPC Communication**: Efficient inter-service communication using gRPC.
+- **Dockerized Setup**: Services run in isolated containers via Docker Compose.
+- **AWS Emulation with LocalStack**: Local testing of AWS services.
+- **Scalable and Modular Architecture**: Easily extendable and maintainable services.
+
+## Technologies Used
+
+- **Language**: Java
+- **Build Tool**: Maven
+- **Communication**: gRPC
+- **Containerization**: Docker
+- **AWS Emulation**: LocalStack
+- **[Database]**: *Add your preferred database (e.g., PostgreSQL, MongoDB, etc.)*
+
+## Architecture Overview
+
+The system is composed of several microservices, each responsible for specific functionalities:
+
+- **API Gateway**: Routes client requests to appropriate services.
+- **Auth Service**: Handles user authentication and authorization.
+- **User Service**: Manages user-related data and operations.
+- **Billing Service**: Handles billing and payment logic.
+- **Analytics Service**: Collects and processes analytics data.
+
+All services communicate using **gRPC** to ensure high performance and scalability.
+
+## Project Structure
+
+```
+
+store-management/
+├── api-gateway/
+├── auth-service/
+├── user-service/
+├── billing-service/
+├── analytics-service/
+├── grpc-requests/
+├── infrastructure/
+├── integration-tests/
+├── .gitignore
+├── README.md
+└── docker-compose.yml
+
+````
+
+## Installation
+
+### Prerequisites
+
+- Docker
+- Java 21
+- Maven
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/madhuka2002/store-management.git
+cd store-management
+````
+
+### Build Services
+
+```bash
+mvn clean install
+```
+
+### Start Services
+
+```bash
+docker-compose up --build
+```
+
+Make sure **Docker** and **LocalStack** are running before starting the services.
+
+## Testing
+
+To run integration tests:
+
+```bash
+cd integration-tests
+mvn test
+```
+
+Ensure all services are up and running before executing tests.
+
+## Contributing
+
+Contributions are welcome! Please fork this repository and submit pull requests for new features, bug fixes, or improvements.
+
+---

@@ -32,7 +32,7 @@ export default function Education() {
       institution: 'National Institute of Business Management',
       location: 'Colombo, Sri Lanka',
       period: '2024 - 2025',
-      description: 'Completed with distinction.(GPA: 3.87)'
+      description: 'Distinction | GPA: 3.89'
     }
   ]
 
@@ -60,6 +60,18 @@ export default function Education() {
       issuer: 'HackerRank',
       date: 'January 2025',
       link: 'https://www.hackerrank.com/certificates/6d34c82a93b0'
+    },
+    {
+      name: 'API Testing with Postman: Biginner toPro',
+      issuer: 'Udemy',
+      date: 'May 2025',
+      link: 'https://www.udemy.com/certificate/UC-43c92cc8-54b2-479a-a368-8fd277803db9'
+    },
+    {
+      name: 'Professional Certificate in DevOps',
+      issuer: 'MTF Institue of Management, Technology and Finance',
+      date: 'May 2025',
+      link: 'https://www.udemy.com/certificate/UC-d636a6ee-4c06-4c91-ad29-56e2d2309745'
     }
   ]
 

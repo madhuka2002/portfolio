@@ -1,0 +1,254 @@
+---
+title: "Mastering Postman: From CRUD to Automation and Beyond"
+summary: "Learn how to supercharge your API testing with Postman — covering CRUD operations, environment variables, status codes, request bodies, automation, console usage, and more."
+image: /images/posts/PostmanGuide.png
+author: "Madhuka Malshan"
+publishedAt: "2025-06-04"
+---
+
+# 🚀 Introduction to Postman
+
+If you're working with APIs, **Postman** is your go-to tool. It allows developers to **test, document, and automate RESTful APIs** with ease. Whether you're building a simple CRUD API or testing complex workflows, Postman simplifies every step.
+
+Let’s dive in and unlock the true power of Postman!
+
+---
+
+## 🔄 CRUD Operations in Postman
+
+### ✅ Create (POST)
+Used to send data to the server to create a new resource.
+
+```http
+POST /api/users
+````
+
+**Body (raw/JSON):**
+
+```json
+{
+  "name": "Madhuka",
+  "email": "madhuka@mail.com"
+}
+```
+
+---
+
+### 📥 Read (GET)
+
+Used to retrieve information.
+
+```http
+GET /api/users
+```
+
+---
+
+### ✏️ Update (PUT / PATCH)
+
+Update an existing resource.
+
+```http
+PUT /api/users/1
+```
+
+**Body:**
+
+```json
+{
+  "email": "updated@mail.com"
+}
+```
+
+---
+
+### ❌ Delete (DELETE)
+
+Remove a resource.
+
+```http
+DELETE /api/users/1
+```
+
+---
+
+## 🌎 Environment Variables
+
+Environment variables help you switch between different setups (like **local**, **staging**, **production**) without rewriting URLs or tokens.
+
+🔧 **Example:**
+
+* `{{base_url}}` → `http://localhost:8080`
+* `{{token}}` → `Bearer your_jwt_token_here`
+
+You can set these in:
+
+> ⚙️ Environment Settings → Manage Environments
+
+Then use `{{base_url}}/api/users` in your requests.
+
+---
+
+## 🔍 Request Body & Parameters
+
+Postman supports multiple body types:
+
+* `raw` (JSON, XML, Text)
+* `form-data` (for file uploads)
+* `x-www-form-urlencoded`
+
+And also allows you to add:
+
+* **Query Params:** `/users?page=1`
+* **Path Variables:** `/users/:id`
+
+💡 Tip: Use `Params` tab for query parameters and `Pre-request Script` for dynamic body construction.
+
+---
+
+## 📬 Headers & Authentication
+
+Use the **Headers tab** to add custom headers like:
+
+* `Authorization`: Bearer token
+* `Content-Type`: application/json
+
+Also supports:
+
+* Basic Auth
+* Bearer Tokens
+* API Key
+* OAuth 2.0
+
+---
+
+## 📟 Status Codes
+
+Postman will show response codes, time, and size. Key HTTP Status Codes:
+
+* `200 OK`: Request succeeded
+* `201 Created`: Resource created
+* `400 Bad Request`: Client error
+* `401 Unauthorized`: Auth required
+* `404 Not Found`: Resource not found
+* `500 Internal Server Error`: Server crash
+
+---
+
+## ⚙️ Automation with Tests
+
+Postman supports JavaScript-based test automation.
+
+```js
+pm.test("Status is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("Content-Type is JSON", function () {
+    pm.response.to.have.header("Content-Type");
+});
+```
+
+You can write **test cases** to validate responses, headers, values, response times, etc.
+
+---
+
+## 🔁 Pre-request Script & Chaining Requests
+
+Use **Pre-request Scripts** to set values before sending a request.
+
+```js
+pm.environment.set("userId", "1234");
+```
+
+You can also **chain** requests by storing data in variables:
+
+```js
+let response = pm.response.json();
+pm.environment.set("userId", response.id);
+```
+
+Then use `{{userId}}` in the next request.
+
+---
+
+## 📦 Collections & Folders
+
+Group your requests into **collections** for better organization.
+
+* Folders group requests logically (e.g., Auth, User, Orders)
+* Collections can be exported and shared across teams
+
+---
+
+## 📋 Collection Runner
+
+Run an entire collection of requests **sequentially** with predefined data.
+
+You can import a CSV or JSON file to test with multiple sets of data (Data-Driven Testing).
+
+---
+
+## 📜 Console for Debugging
+
+Use the **Postman Console** (View → Show Postman Console or `Ctrl + Alt + C`) to:
+
+* Log variables
+* Debug pre-request/test scripts
+* Inspect full request & response
+
+```js
+console.log("Token is: ", pm.environment.get("token"));
+```
+
+---
+
+## 💡 Useful Tips
+
+✅ Use variables to avoid repetition
+✅ Save frequent requests as collections
+✅ Write tests for expected outcomes
+✅ Use `pm.environment` and `pm.globals` wisely
+✅ Share environment and collections with your team
+
+---
+
+## 🚫 Common Mistakes
+
+❌ Forgetting to set `Content-Type`
+❌ Mixing path and query parameters
+❌ Not saving updated environments
+❌ Overwriting global variables accidentally
+
+---
+
+## 🧠 Quick Quiz
+
+1. What is the difference between PUT and PATCH?
+2. Where do you set authentication tokens in Postman?
+3. How can you chain data between requests?
+4. What does the Postman Console help you with?
+
+---
+
+## 📌 FAQ
+
+**Q: Can Postman be used with GraphQL?**
+A: Yes! Postman has built-in support for GraphQL requests.
+
+**Q: Can I export my collections?**
+A: Absolutely. You can export and import collections, environments, and more.
+
+**Q: Can I use Postman for automated testing?**
+A: Yes — use tests, the Collection Runner, and Newman (CLI tool) for automation.
+
+---
+
+## 🔮 What’s Next?
+
+* 🧪 **Newman**: Run Postman tests via CLI in CI/CD
+* 🔐 **OAuth 2.0**: Setup advanced authentication flows
+* 🌐 **Mock Servers**: Simulate API responses
+* 📊 **Monitors**: Schedule collection runs and monitor performance
+
+---
