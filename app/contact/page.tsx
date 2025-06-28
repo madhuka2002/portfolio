@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section className='pb-24 pt-40'>
       <div className='container max-w-3xl'>
-        <h2 className='text-3xl font-bold mb-8 text-center'>Let's Connect</h2>
+        <h2 className='text-3xl font-bold mb-8 text-center'>Let&apos;s Connect</h2>
 
         <div className='bg-muted rounded-2xl shadow-lg p-6 mb-10'>
           <div className='flex items-center gap-4 mb-6'>
