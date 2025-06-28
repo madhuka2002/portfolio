@@ -72,6 +72,12 @@ export default function Education() {
       issuer: 'MTF Institue of Management, Technology and Finance',
       date: 'May 2025',
       link: 'https://www.udemy.com/certificate/UC-d636a6ee-4c06-4c91-ad29-56e2d2309745'
+    },
+    {
+      name: 'High Quality Image Production With Artificial Intelligence',
+      issuer: 'F.E Academy',
+      date: 'June 2025',
+      link: 'https://www.udemy.com/certificate/UC-a1ac0897-d922-4902-8cf2-e72683f01039/'
     }
   ]
 

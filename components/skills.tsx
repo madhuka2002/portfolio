@@ -51,7 +51,10 @@ export default function Skills() {
     { name: 'TypeScript'},
     { name: 'Tailwind CSS'},
     { name: 'JavaScript'},
-    { name: 'HTML/CSS'}
+    { name: 'HTML/CSS'},
+    { name: 'WordPress'},
+    { name: 'Shard CN'},
+    { name: 'Figma'}
   ]
 
   const backendSkills = [
@@ -60,14 +63,21 @@ export default function Skills() {
     { name: 'Express'},
     { name: 'MongoDB'},
     { name: 'SQL'},
-    { name: 'REST API'}
+    { name: 'REST API'},
+    { name: 'Maven'},
+    { name: 'SpringBoot'},
+    { name: 'Java'}
   ]
 
   const otherSkills = [
     // { name: 'Git', level: 85 },
     { name: 'Git'},
     { name: 'Figma'},
-    { name: 'Agile/Scrum'}
+    { name: 'Agile/Scrum'},
+    { name: 'Docker'},
+    { name: 'Ansible'},
+    { name: 'AI ML'},
+    { name: 'Anaconda'}
   ]
 
   return (
