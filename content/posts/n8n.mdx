@@ -1,0 +1,162 @@
+---
+title: "Building Agentic AI Workflows with n8n: Automate with Intelligence"
+summary: "Create powerful no-code automations with n8n using Agentic AI. Learn how to combine LLMs, memory, conditional logic, and tool-based actions to build smart, autonomous workflows."
+image: /images/posts/n8nAgenticAI.png
+author: "Madhuka Malshan"
+publishedAt: "2025-07-31"
+---
+
+# 🧠 Automating with Agentic AI in n8n
+
+**n8n** (pronounced "n-eight-n") is a powerful workflow automation tool. But when you add **Agentic AI**, it becomes an intelligent orchestration platform capable of thinking, deciding, and acting.
+
+Let’s explore how to bring LLM-driven agents to life in n8n — without writing code.
+
+---
+
+## ⚙️ What Is Agentic AI in n8n?
+
+Agentic AI in this context means:
+
+* Using **LLMs (GPT, Claude, Mistral, etc.)**
+* Giving them **tools** (via n8n nodes)
+* Letting them **observe, think, act**
+* Retaining **memory** using variables or databases
+* Making **autonomous decisions**
+
+> 🧭 In short: LLM + tools + memory + control flow = Agentic AI
+
+---
+
+## 🔁 Sample Use Case: Smart Customer Follow-Up
+
+Here’s a simple **Agentic AI Workflow** in n8n:
+
+```yaml
+Trigger: New Form Submission
+→ LLM Node: Analyze intent and urgency
+→ IF Node: Check if VIP client
+→ Tool Node: Generate email with OpenAI
+→ Gmail Node: Send email
+→ Notion Node: Log interaction
+→ Slack Node: Notify support
+````
+
+---
+
+## 🧩 Node Breakdown
+
+### 🧠 LLM (OpenAI, Mistral, Azure OpenAI)
+
+Use this node to:
+
+* Understand user intent
+* Summarize or generate text
+* Extract structured data
+
+🧪 Prompt example:
+
+```
+You are a support agent. Given the user's message, classify urgency as High, Medium, or Low. Output JSON:
+{
+  "urgency": "High"
+}
+```
+
+---
+
+### 📥 Memory via n8n Variables
+
+Use n8n’s:
+
+* `Set` node → store session variables
+* `IF` node → conditionally control flow
+* `Function` node → manage memory logic
+* `Data Stores` or `Postgres/MySQL` → persistent memory
+
+```js
+// Function node example
+items[0].json.memory = {
+  lastClient: "Alice",
+  urgency: "High"
+};
+return items;
+```
+
+---
+
+## 🛠️ Tool Nodes = Agent Actions
+
+Tools are external actions. Your agent doesn't just think — it **acts** via these nodes:
+
+* `HTTP Request`: Call APIs
+* `Google Calendar`: Book meetings
+* `Notion`: Log summaries
+* `Gmail`: Send emails
+* `Webhook`: Trigger actions elsewhere
+
+---
+
+## 🔄 Chaining Agents in n8n
+
+Want multi-step reasoning?
+
+Use **LLM → memory → tool → feedback loop** like this:
+
+```yaml
+1. Analyze query
+2. Plan steps (using an LLM)
+3. Loop through plan with IF & Switch
+4. Call tools in order
+5. Store results and respond
+```
+
+🧠 Tip: Use `Execute Workflow` node for modular agents.
+
+---
+
+## 🔐 Guardrails & Validation
+
+Protect your workflow using:
+
+* `IF` conditions
+* Prompt constraints ("Don't send emails unless authorized")
+* Function node checks
+* Admin review gates
+
+🔒 Example:
+
+```js
+if (items[0].json.urgency === "High" && !items[0].json.isVIP) {
+  throw new Error("Non-VIP cannot trigger priority flow.");
+}
+```
+
+---
+
+## 🔍 Debugging & Testing
+
+Use:
+
+* `n8n Execution Logs`
+* `Console.log` in Function node
+* `Manual Trigger` for step-by-step
+* Environment variables for safe testing
+
+---
+
+## 💡 Best Practices
+
+✅ Use clear system prompts
+
+✅ Store important context early
+
+✅ Split big workflows into subflows
+
+✅ Use `Set`, `Function`, and `IF` nodes for logic
+
+✅ Reuse prompt templates with variables
+
+✅ Track state (steps completed, last tool used)
+
+---
