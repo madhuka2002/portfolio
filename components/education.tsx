@@ -32,11 +32,17 @@ export default function Education() {
       institution: 'National Institute of Business Management',
       location: 'Colombo, Sri Lanka',
       period: '2024 - 2025',
-      description: 'Distinction | GPA: 3.89'
+      description: 'Distinction | GPA: 3.85'
     }
   ]
 
   const certificates: CertificateItem[] = [
+    {
+      name: 'AI/ML Engineer - Stage 2',
+      issuer: 'SLIIT Faculty of Computing',
+      date: 'Jul 2025',
+      link: 'https://code.sliit.org/certificates/qix0xmtlsk'
+    },
     {
       name: 'AI/ML Engineer - Stage 1',
       issuer: 'SLIIT Faculty of Computing',
@@ -78,6 +84,12 @@ export default function Education() {
       issuer: 'F.E Academy',
       date: 'June 2025',
       link: 'https://www.udemy.com/certificate/UC-a1ac0897-d922-4902-8cf2-e72683f01039/'
+    },
+    {
+      name: 'SQL (Basic) Certificate',
+      issuer: 'HackerRank',
+      date: 'Aug 2025',
+      link: 'https://www.hackerrank.com/certificates/ee6febf11260'
     }
   ]
 

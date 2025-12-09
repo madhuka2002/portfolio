@@ -28,13 +28,13 @@ export default function Projects({
             <div className='absolute inset-[1px] rounded-lg bg-background/70 opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
 
             <div className='absolute inset-x-0 bottom-0 translate-y-2 px-6 py-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100'>
-              <h2 className='title line-clamp-1 text-xl no-underline'>
+              <h2 className='title line-clamp-1 text-xl text-foreground dark:text-white no-underline'>
                 {project.title}
               </h2>
-              <p className='line-clamp-1 text-sm text-muted-foreground'>
+              <p className='line-clamp-1 text-sm text-foreground/95 dark:text-white/95'>
                 {project.summary}
               </p>
-              <p className='text-xs font-light text-muted-foreground'>
+              <p className='text-xs font-light text-foreground/85 dark:text-white/85'>
                 {formatDate(project.publishedAt ?? '')}
               </p>
             </div>

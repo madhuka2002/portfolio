@@ -52,8 +52,8 @@ export default async function Project({
         )}
 
         <header>
-          <h1 className='title'>{title}</h1>
-          <p className='mt-3 text-xs text-muted-foreground'>
+          <h1 className='title text-foreground'>{title}</h1>
+          <p className='mt-3 text-xs text-foreground/80 dark:text-foreground/80'>
             {author} / {formatDate(publishedAt ?? '')}
           </p>
         </header>

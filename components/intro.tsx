@@ -7,9 +7,8 @@ export default function Intro() {
       <div className='mt-2 flex-1 md:mt-0'>
         <h1 className='title no-underline'>Hello, I&#39;m Madhuka Malshan.</h1>
         <p className='mt-3 font-light text-muted-foreground'>
-          I&#39;m a software engineer based in Colombo, Sri Lanka.
-          I deep interest in learning and researching emerging technologies, with passion for 
-          invention and continuous improvement..
+          Motivated Computer Science with Software Engineering undergraduate at Coventry University, with a strong
+passion for Software Development, AI & ML Engineering, Data Science, and scalable technologies...
         </p>
       </div>
       <div className='relative'>

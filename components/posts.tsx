@@ -13,14 +13,14 @@ export default function Posts({ posts }: { posts: PostMetadata[] }) {
             className='flex flex-col justify-between gap-x-4 gap-y-1 sm:flex-row'
           >
             <div className='max-w-lg'>
-              <p className='text-lg font-semibold'>{post.title}</p>
-              <p className='mt-1 line-clamp-2 text-sm font-light text-muted-foreground'>
+              <p className='text-lg font-semibold text-foreground dark:text-foreground'>{post.title}</p>
+              <p className='mt-1 line-clamp-2 text-sm font-light text-foreground/80 dark:text-foreground/80'>
                 {post.summary}
               </p>
             </div>
 
             {post.publishedAt && (
-              <p className='mt-1 text-sm font-light'>
+              <p className='mt-1 text-sm font-light text-foreground/70 dark:text-foreground/70'>
                 {formatDate(post.publishedAt)}
               </p>
             )}
