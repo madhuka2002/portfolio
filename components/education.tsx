@@ -44,6 +44,12 @@ export default function Education() {
       link: 'https://code.sliit.org/certificates/qix0xmtlsk'
     },
     {
+      name: 'AWS Educate Machine Learning Foundations - Training Badge',
+      issuer: 'Amazon Web Services Training and Certification',
+      date: 'Dec 2025',
+      link: 'https://www.credly.com/badges/9d4bfd6e-0e3e-49e0-9ca0-5d721c6ea041/linked_in_profile'
+    },
+    {
       name: 'AI/ML Engineer - Stage 1',
       issuer: 'SLIIT Faculty of Computing',
       date: 'Octomber 2023',
