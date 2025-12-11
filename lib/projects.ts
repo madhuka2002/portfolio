@@ -20,11 +20,40 @@ export type ProjectMetadata = {
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   try {
-    const filePath = path.join(rootDirectory, `${slug}.mdx`)
+    // Try exact match first
+    let filePath = path.join(rootDirectory, `${slug}.mdx`)
+    
+    // If file doesn't exist, try case-insensitive search
+    if (!fs.existsSync(filePath)) {
+      const files = fs.readdirSync(rootDirectory)
+      const matchingFile = files.find(
+        file => file.toLowerCase() === `${slug.toLowerCase()}.mdx`
+      )
+      
+      if (matchingFile) {
+        filePath = path.join(rootDirectory, matchingFile)
+      } else {
+        console.error(`Project file not found: ${slug}.mdx`)
+        return null
+      }
+    }
+    
     const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
+    
+    if (!fileContent || fileContent.trim() === '') {
+      console.error(`Project file is empty: ${filePath}`)
+      return null
+    }
+    
     const { data, content } = matter(fileContent)
+    
+    if (!content || content.trim() === '') {
+      console.warn(`Project content is empty for: ${slug}`)
+    }
+    
     return { metadata: { ...data, slug }, content }
   } catch (error) {
+    console.error(`Error loading project ${slug}:`, error)
     return null
   }
 }
