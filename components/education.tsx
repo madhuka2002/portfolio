@@ -38,6 +38,18 @@ export default function Education() {
 
   const certificates: CertificateItem[] = [
     {
+      name: 'Introduction to Kubernetes (LFS158)',
+      issuer: 'The Linux Foundation',
+      date: 'Jan 2026',
+      link: 'https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/f1e470af-87a4-41ee-ba1d-8ddac962ca22-m-m-m-aththanayaka-e196748d-b2eb-4950-93a4-04cd2d22854c-certificate.pdf'
+    },
+    {
+      name: 'LFEL1012: Secure AI/ML-Driven Software Development',
+      issuer: 'The Linux Foundation',
+      date: 'Jan 2026',
+      link: 'https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/f1e470af-87a4-41ee-ba1d-8ddac962ca22-madhuka-malshan-eb1cf84a-3411-4c92-be74-214d30d937dc-certificate.pdf'
+    },
+    {
       name: 'AI/ML Engineer - Stage 2',
       issuer: 'SLIIT Faculty of Computing',
       date: 'Jul 2025',
@@ -54,6 +66,12 @@ export default function Education() {
       issuer: 'SLIIT Faculty of Computing',
       date: 'Octomber 2023',
       link: 'https://code.sliit.org/certificates/qix0xmtlsk'
+    },
+    {
+      name: 'AWS Educate Introduction to Generative AI - Training Badge',
+      issuer: 'Amazon Web Services Training and Certification',
+      date: 'Dec 2025',
+      link: 'https://www.credly.com/badges/d6ca5740-5936-4b23-9370-5176428fa43f'
     },
     {
       name: 'SQL (Intermediate) Certificate',
