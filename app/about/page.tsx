@@ -8,7 +8,7 @@ export default async function AboutPage() {
 
     return (
       <section className='pb-24 pt-40'>
-        <div className='container max-w-3xl'>
+        <div className='container mx-auto max-w-3xl'>
           <h1 className='title mb-12 text-foreground'>About Me</h1>
 
           {content ? (
@@ -37,7 +37,7 @@ solutions and continue expanding my expertise in advanced AI technologies.</p>
     console.error('Error in AboutPage:', error)
     return (
       <section className='pb-24 pt-40'>
-        <div className='container max-w-3xl'>
+        <div className='container mx-auto max-w-3xl'>
           <h1 className='title mb-12 text-foreground'>About Me</h1>
           <p>There was an error loading the content. Please try again later.</p>
         </div>

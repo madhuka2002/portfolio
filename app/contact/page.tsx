@@ -6,7 +6,7 @@ import ContactForm from '@/components/contact-form'
 export default function Contact() {
   return (
     <section className='pb-24 pt-40'>
-      <div className='container max-w-3xl'>
+      <div className='container mx-auto max-w-3xl'>
         <h2 className='text-3xl font-bold mb-8 text-center'>Connect Me</h2>
 
         <div className='bg-muted rounded-2xl shadow-lg p-6 mb-10'>
