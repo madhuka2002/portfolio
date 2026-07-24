@@ -1,6 +1,6 @@
 'use client'
 
-import { Mail, Phone, MapPin, Linkedin, Github, User } from 'lucide-react'
+import { Mail, Phone, MapPin, Globe, GitBranch, User } from 'lucide-react'
 import ContactForm from '@/components/contact-form'
 
 export default function Contact() {
@@ -36,7 +36,7 @@ export default function Contact() {
               Malabe, Colombo, Sri Lanka
             </li>
             <li className='flex items-center gap-2'>
-              <Linkedin className='w-5 h-5 text-blue-600' />
+              <Globe className='w-5 h-5 text-blue-600' />
               <a
                 href='https://www.linkedin.com/in/madhuka-malshan-759119301'
                 target='_blank'
@@ -47,7 +47,7 @@ export default function Contact() {
               </a>
             </li>
             <li className='flex items-center gap-2'>
-              <Github className='w-5 h-5 text-black' />
+              <GitBranch className='w-5 h-5 text-black' />
               <a
                 href='https://github.com/madhuka2002'
                 target='_blank'

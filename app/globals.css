@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@plugin "@tailwindcss/typography";
+
 @layer base {
      :root {
         --background: 0 0% 100%;
@@ -72,13 +73,22 @@
 
 @layer base {
     * {
-        @apply border-border;
+        border-color: hsl(var(--border));
     }
     body {
-        @apply bg-background text-foreground;
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
     }
     .title {
-        @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8 text-foreground;
+        font-family: var(--font-serif, serif);
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+        font-weight: 700;
+        text-decoration-line: underline;
+        text-decoration-color: hsl(var(--border) / 0.75);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 8px;
+        color: hsl(var(--foreground));
     }
     .dark .prose {
         color: hsl(var(--foreground));
@@ -104,16 +114,22 @@
         color: hsl(var(--foreground) / 0.9);
     }
     .prose pre {
-        @apply overflow-x-auto rounded-lg bg-accent px-5 py-4 text-sm;
+        overflow-x: auto;
+        border-radius: 0.5rem;
+        background-color: hsl(var(--accent));
+        padding: 1.25rem 1.25rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
     }
     .prose code {
-        @apply rounded-lg px-1 py-0.5;
+        border-radius: 0.5rem;
+        padding: 0.125rem 0.25rem;
     }
     .prose pre code {
-        @apply p-0;
+        padding: 0;
         line-height: 1.75;
     }
     .prose code span {
-        @apply font-medium;
+        font-weight: 500;
     }
 }
