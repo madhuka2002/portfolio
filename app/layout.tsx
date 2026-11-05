@@ -5,8 +5,7 @@ import { cn } from '@/lib/utils'
 
 import './globals.css'
 import Providers from '@/components/providers'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import SinglePageHeader from '@/components/single-page-header'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const playfair = Playfair_Display({
@@ -16,7 +15,10 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: 'Madhuka Malshan',
-  description: 'Portfolio'
+  description: 'Madhuka Malshan builds full-stack, AI, mobile, and microservice products from Colombo, Sri Lanka.',
+  icons: {
+    icon: '/images/authors/pageLogo.jpg'
+  }
 }
 
 export default function RootLayout({
@@ -34,9 +36,8 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <Header />
+          <SinglePageHeader />
           <main className='grow'>{children}</main>
-          <Footer />
         </Providers>
       </body>
     </html>

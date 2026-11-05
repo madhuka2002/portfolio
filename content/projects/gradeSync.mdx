@@ -4,11 +4,12 @@ summary: A Java-based Learning Management System developed using Apache NetBeans
 image: /images/projects/gradeSync.png
 author: 'Madhuka Malshan'
 publishedAt: '2025-03-13'
+repository: https://github.com/madhuka2002/GradeSync-LMS
 ---
 
 ## Introduction
 
-GradeSync-LMS is a Java-based Learning Management System (LMS) application developed using Apache NetBeans. It provides features to manage students, teachers, courses, and academic activities efficiently. This document provides information on how to set up, run, and maintain the application, including details about its structure and the technologies used.
+GradeSync-LMS is a group-developed Java desktop application built with Swing in Apache NetBeans. It centralizes student, teacher, course, and academic activity management in one learning management workflow.
 
 ## Features
 
@@ -22,7 +23,7 @@ GradeSync-LMS is a Java-based Learning Management System (LMS) application devel
 The application is built using the following technologies:
 - **Programming Language**: Java
 - **IDE**: Apache NetBeans
-- **Database**: MongoDB (Note: The original text mentions MongoDB, but the setup instructions refer to MySQL or PostgreSQL. Ensure the correct database is used based on your setup.)
+- **Database**: MongoDB
 - **Version Control**: Git
 
 ## Project Structure
@@ -45,7 +46,7 @@ Before running the application, ensure that the following tools and software are
 
 ## Database Requirements
 
-Ensure a supported database is installed and running (e.g., MySQL, PostgreSQL). Set up the database schema and populate it using the provided SQL scripts (if any).
+Ensure MongoDB is installed, running, and accessible to the application.
 
 ## Installation Steps
 
@@ -76,8 +77,7 @@ Ensure a supported database is installed and running (e.g., MySQL, PostgreSQL). 
  - In NetBeans, right-click on the project in the "Projects" window.
  - Select **Run** or press `F6`.
 3. **Access the Application**:
- - If web-based, open your browser and navigate to `http://localhost:8080`.
- - If desktop-based, the interface will load directly.
+- The desktop interface will load directly.
 
 ## Troubleshooting
 
@@ -97,7 +97,7 @@ Ensure a supported database is installed and running (e.g., MySQL, PostgreSQL). 
 
 To deploy the application, follow these steps:
 - **Upload Project Files**: Upload project files to a server.
-- **Set Up the Database**: Set up the MySQL or PostgreSQL database on the server and import the SQL file.
+- **Set Up the Database**: Configure the MongoDB connection for the target environment.
 - **Update Database Credentials**: Update `config.properties` with the live database credentials.
 
 ## Contributing
@@ -122,6 +122,8 @@ To deploy the application, follow these steps:
 This project is licensed under the MIT License.
 
 For questions or feedback, feel free to contact the developer.
+
+[View the project on GitHub](https://github.com/madhuka2002/GradeSync-LMS)
 
 ---
 

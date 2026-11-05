@@ -15,6 +15,8 @@ export type ProjectMetadata = {
   image?: string
   author?: string
   publishedAt?: string
+  repository?: string
+  liveUrl?: string
   slug: string
 }
 
@@ -59,7 +61,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
 }
 
 export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
-  const files = fs.readdirSync(rootDirectory)
+  const files = fs.readdirSync(rootDirectory).filter(file => file.endsWith('.mdx'))
 
   const projects = files
     .map(file => getProjectMetadata(file))
@@ -76,6 +78,14 @@ export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
   }
 
   return projects
+}
+
+export async function getAllProjects(): Promise<Project[]> {
+  const projects = await getProjects()
+
+  return (
+    await Promise.all(projects.map(project => getProjectBySlug(project.slug)))
+  ).filter((project): project is Project => project !== null)
 }
 
 export function getProjectMetadata(filepath: string): ProjectMetadata {

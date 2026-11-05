@@ -1,6 +1,6 @@
 ---
-title: Store Management – Event-Driven Microservices E-commerce Backend
-summary: A scalable e-commerce backend built with an event-driven microservices architecture using Java, gRPC, Docker, and LocalStack.
+title: TED ME — Event-Driven Microservices E-Commerce Platform
+summary: An event-driven e-commerce platform using Java, Spring Boot, Kafka, Docker, Spring Cloud Gateway, JWT, and PostgreSQL.
 image: /images/projects/eventDriven-MC-ecom.png
 author: 'Madhuka Malshan'
 publishedAt: '2025-03-13'
@@ -9,36 +9,37 @@ repository: https://github.com/madhuka2002/store-management.git
 
 ## Introduction
 
-This project serves as a foundational backend for an e-commerce platform, utilizing an event-driven microservices architecture. It leverages Docker for containerization and LocalStack to emulate AWS services locally, facilitating efficient development and testing. Communication between microservices is achieved through high-performance **gRPC**.
+TED ME addresses the limitations of tightly coupled e-commerce systems through an event-driven architecture with independently managed services. User, product, and order operations are separated to improve modularity, maintainability, and deployment flexibility.
 
 ## Features
 
-- **Event-Driven Microservices**: Decoupled services communicating via events.
-- **gRPC Communication**: Efficient inter-service communication using gRPC.
-- **Dockerized Setup**: Services run in isolated containers via Docker Compose.
-- **AWS Emulation with LocalStack**: Local testing of AWS services.
-- **Scalable and Modular Architecture**: Easily extendable and maintainable services.
+- **Event-Driven Microservices**: Decoupled services communicate through Apache Kafka.
+- **API Gateway**: Spring Cloud Gateway centralizes request routing.
+- **JWT Authentication**: Token-based access secures protected operations.
+- **Dockerized Setup**: Services run in isolated containers.
+- **PostgreSQL Persistence**: Relational data storage for platform services.
 
 ## Technologies Used
 
 - **Language**: Java
 - **Build Tool**: Maven
-- **Communication**: gRPC
+- **Framework**: Spring Boot
+- **Communication**: Apache Kafka
+- **Gateway**: Spring Cloud Gateway
+- **Security**: JWT
 - **Containerization**: Docker
-- **AWS Emulation**: LocalStack
-- **[Database]**: *Add your preferred database (e.g., PostgreSQL, MongoDB, etc.)*
+- **Database**: PostgreSQL
 
 ## Architecture Overview
 
 The system is composed of several microservices, each responsible for specific functionalities:
 
-- **API Gateway**: Routes client requests to appropriate services.
-- **Auth Service**: Handles user authentication and authorization.
-- **User Service**: Manages user-related data and operations.
-- **Billing Service**: Handles billing and payment logic.
-- **Analytics Service**: Collects and processes analytics data.
+- **API Gateway**: Routes client requests to the appropriate service.
+- **User Service**: Manages user data and authentication operations.
+- **Product Service**: Manages catalog and product operations.
+- **Order Service**: Manages order workflows.
 
-All services communicate using **gRPC** to ensure high performance and scalability.
+Services publish and consume events through **Apache Kafka** to coordinate operations without tight coupling.
 
 ## Project Structure
 
@@ -46,11 +47,10 @@ All services communicate using **gRPC** to ensure high performance and scalabili
 
 store-management/
 ├── api-gateway/
-├── auth-service/
 ├── user-service/
-├── billing-service/
-├── analytics-service/
-├── grpc-requests/
+├── product-service/
+├── order-service/
+├── kafka-config/
 ├── infrastructure/
 ├── integration-tests/
 ├── .gitignore
@@ -86,7 +86,7 @@ mvn clean install
 docker-compose up --build
 ```
 
-Make sure **Docker** and **LocalStack** are running before starting the services.
+Make sure **Docker**, **Kafka**, and **PostgreSQL** are available before starting the services.
 
 ## Testing
 

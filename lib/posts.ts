@@ -30,7 +30,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
 }
 
 export async function getPosts(limit?: number): Promise<PostMetadata[]> {
-  const files = fs.readdirSync(rootDirectory)
+  const files = fs.readdirSync(rootDirectory).filter(file => file.endsWith('.mdx'))
 
   const posts = files
     .map(file => getPostMetadata(file))
@@ -47,6 +47,14 @@ export async function getPosts(limit?: number): Promise<PostMetadata[]> {
   }
 
   return posts
+}
+
+export async function getAllPosts(): Promise<Post[]> {
+  const posts = await getPosts()
+
+  return (
+    await Promise.all(posts.map(post => getPostBySlug(post.slug)))
+  ).filter((post): post is Post => post !== null)
 }
 
 export function getPostMetadata(filepath: string): PostMetadata {
