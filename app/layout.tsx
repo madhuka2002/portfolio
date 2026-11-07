@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 
 import './globals.css'
 import Providers from '@/components/providers'
+import QuantheonixChatWidget from '@/components/quantheonix-chat'
 import SinglePageHeader from '@/components/single-page-header'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Providers>
           <SinglePageHeader />
           <main className='grow'>{children}</main>
+          <QuantheonixChatWidget />
         </Providers>
       </body>
     </html>
