@@ -28,7 +28,7 @@ export default async function Home() {
           <div className='max-w-3xl'>
             <p className='mb-5 flex items-center gap-3 text-sm font-medium text-muted-foreground'><span className='h-px w-10 bg-[hsl(var(--brand))]' />Software Engineer · AI integration</p>
             <h1 className='font-serif text-5xl font-bold leading-[1.04] tracking-[-0.04em] sm:text-7xl'>Hi, I&apos;m Madhuka Malshan.</h1>
-            <p className='mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl'>Software Engineer pursuing a BSc (Hons) in Computer Science with Software Engineering at Coventry University. I enjoy turning ideas into useful, reliable software and exploring how AI and automation can improve everyday applications.</p>
+            <p className='mt-7 max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl'>Computer Science student pursuing a BSc (Hons) in Computer Science with Software Engineering at Coventry University. I enjoy turning ideas into useful, reliable software and exploring how AI and automation can improve everyday applications.</p>
             <div className='mt-9 flex flex-wrap gap-3'>
               <a href='#projects' className='primary-link'>Explore my work <ArrowUpRight size={17} /></a>
               <a href='mailto:madhukaaththanayaka@gmail.com' className='secondary-link'>Let&apos;s connect</a>

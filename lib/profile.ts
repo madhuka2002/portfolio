@@ -55,19 +55,31 @@ export const skillGroups = [
   },
   {
     title: 'Frontend',
-    skills: ['React.js', 'Next.js', 'HTML', 'CSS', 'Bootstrap']
+    skills: ['React.js', 'Next.js', 'HTML', 'CSS', 'Bootstrap', 'Tailwind CSS','Axios']
   },
   {
     title: 'Backend',
     skills: ['Spring Boot', 'Node.js', 'Express.js', 'FastAPI']
   },
   {
-    title: 'Architecture & data',
-    skills: ['REST APIs', 'Microservices', 'Apache Kafka', 'JWT', 'MySQL', 'PostgreSQL', 'MongoDB']
+    title: 'APIs and Architectures',
+    skills: ['REST APIs', 'Microservices', 'Apache Kafka', 'JWT', 'Event Driven Architecture']
   },
   {
-    title: 'AI & tools',
-    skills: ['Google Gemini API', 'LLM APIs', 'RAG concepts', 'Multi-provider AI', 'Git', 'GitHub', 'Docker', 'Postman', 'Pytest']
+    title: 'Databases',
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'ChromaDB', 'NeonDB']
+  },
+  {
+    title: 'Tools and Testing',
+    skills: ['Git', 'GitHub', 'Postman', 'Pytest', 'GitHub Copilot', 'Codex', 'Anaconda', 'Google Colab']
+  },
+  {
+    title: 'AI Integration',
+    skills: ['LangChain', 'RAG', 'OpenAI API', 'n8n', 'LLM']
+  },
+  {
+    title: 'DevOps and Cloud',
+    skills: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Ansible', 'CI/CD', 'Jenkins', 'GitHub Actions']
   },
   {
     title: 'Professional',
